@@ -10,7 +10,7 @@
   <body id="body">
     <script src="three.min.js"></script>
     <script>
-	let scene, camera, renderer;
+	let scene, camera, renderer starGeo;
 
 	function init()  {
 	  scene = new THREE.Scene();
@@ -21,7 +21,16 @@
 	  renderer = new THREE.WebGLRenderer();
           renderer.setSize(window.innerWidth, window.innerHeight);
 	  document.body.appendChild(renderer.domElement);
-
+	  
+	  starGeo = new THREE.Geometry();
+          for(let i=0;i<6000;i++) {
+	 star = new THREE.Vector3 (
+Math.random() * 600 - 300,
+Math.random() * 600 - 300,
+Math.random() * 600 - 300
+        );
+starGeo.vertices.push(star);
+}
 	  animate();
 	}
 	function animate() {
